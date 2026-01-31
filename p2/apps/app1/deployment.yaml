@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app1-deployment
+  name: app1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - image: maddou/my-app-node:v1.0
+        name: app1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        resources: {}
+status: {}
