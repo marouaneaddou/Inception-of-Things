@@ -12,6 +12,6 @@ spec:
           service:
             name: wil42
             port:
-              number: 8080
+              number: 8888
         path: /
         pathType: Prefix
