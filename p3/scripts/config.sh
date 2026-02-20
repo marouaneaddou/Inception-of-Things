@@ -1,7 +1,7 @@
 
 k3d &> /dev/null
 if [[ $? -eq 1 ]]; then
-    echo "is installed befaore"
+    echo "K3d already installed"
 else 
     curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 fi
@@ -14,3 +14,4 @@ kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubuse
 
 kubectl wait --for=condition=ready pods --all -n argocd
 kubectl apply -f ../application.yaml
+kubect apply -f ../argocd/ingress.yaml
