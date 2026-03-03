@@ -2,7 +2,6 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "debian/bookworm64"
-  config.vm.box_version = "12.20250126.1"
   config.vm.synced_folder "./", "/home/vagrant/deploy"
 
   config.vm.define "maddouS" do |maddouS|
