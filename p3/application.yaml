@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/marouaneaddou/myapp-gitops.git
+    repoURL: https://github.com/marouaneaddou/maddou-myapp-gitops.git
     targetRevision: HEAD
     path: .
   destination:
