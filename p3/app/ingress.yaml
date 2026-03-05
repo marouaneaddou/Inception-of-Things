@@ -10,7 +10,7 @@ spec:
       paths:
       - backend:
           service:
-            name: wil42
+            name: maddou
             port:
               number: 8888
         path: /

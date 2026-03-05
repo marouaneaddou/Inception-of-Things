@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wil42
+  name: maddou
   labels:
-    app: wil42
+    app: maddou-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wil42-playground
+      app: maddou-playground
   template:
     metadata:
       labels:
-        app: wil42-playground
+        app: maddou-playground
     spec:
       containers:
-      - name: wil42-playground
+      - name: maddou-playground
         image: wil42/playground:v1
         ports:
         - containerPort: 8888
