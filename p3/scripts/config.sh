@@ -6,7 +6,7 @@ else
     curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 fi
 
-k3d cluster create inception-of-things -p "8888:80@server:0"
+k3d cluster create inception-of-things -p "8888:80@loadbalancer"
 
 kubectl create namespace argocd
 
