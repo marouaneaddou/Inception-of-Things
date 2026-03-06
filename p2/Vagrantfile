@@ -8,8 +8,8 @@ Vagrant.configure("2") do |config|
     maddouS.vm.hostname = "maddouS"
     maddouS.vm.network "private_network", ip: "192.168.56.110"
     config.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-      vb.cpus = 1
+      vb.memory = "2048"
+      vb.cpus = 2
       vb.name = "maddouS"
     end
     config.vm.provision "shell", path: "scripts/install_k3s.sh"
