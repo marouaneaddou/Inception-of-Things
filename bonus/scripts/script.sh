@@ -14,7 +14,7 @@ rm get_helm.sh
 #gitlab installation
 helm repo add gitlab http://charts.gitlab.io/
 helm repo update
-helm install gitlab gitlab/gitlab -n gitlab --create-namespace -f confs/gitlab-values.yaml
+helm install gitlab gitlab/gitlab -n gitlab --create-namespace -f ../confs/gitlab-values.yaml
 
 kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
 
