@@ -14,5 +14,4 @@ kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubuse
 kubectl wait --for=condition=ready pods --all -n argocd
 kubectl apply -f ../confs/application.yaml
 
-echo "kubectl get secret argocd-initial-admin-secret -n argocd -o yaml"
-echo "" | base64 --decode
+echo "kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode"

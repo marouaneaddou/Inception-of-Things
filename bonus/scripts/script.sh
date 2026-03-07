@@ -3,7 +3,7 @@ if ! grep -q "gitlab.local" /etc/hosts; then
 fi
 
 
-k3d cluster create mycluster -p 8080:80@loadbalancer -p 2222:32022@server:0 -p "8888:80@loadbalancer"
+k3d cluster create mycluster -p 8080:80@loadbalancer -p "8888:80@loadbalancer"
 #installation helm
 
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4

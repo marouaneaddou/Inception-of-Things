@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlab.gitlab.local:80/root/app.git
+    repoURL: https://gitlab.gitlab.local:8080/root/app.git
     targetRevision: HEAD
     path: .
   destination:

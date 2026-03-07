@@ -14,11 +14,6 @@ global:
     bootsnap:
       enabled: false
 
-  gitlab-shell:
-    service:
-      type: NodePort
-      nodePort: 32022
-
 installCertmanager: false
 
 nginx-ingress:
@@ -34,7 +29,7 @@ gitlab-runner:
   install: false
 
 registry:
-  enable: false
+  install: false
 
 gitlab:
   webservice:
