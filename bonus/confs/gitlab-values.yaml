@@ -1,11 +1,4 @@
-# values-minikube.yaml
-# This example intended as baseline to use Minikube for the deployment of GitLab
-# - Minimized CPU/Memory load, can fit into 3 CPU, 6 GB of RAM (barely)
-# - Services that are not compatible with how Minikube runs are disabled
-# - Some services entirely removed, or scaled down to 1 replica.
-# - Configured to use 192.168.99.100, and nip.io for the domain
 
-# Minimal settings
 global:
   hosts:
     domain: gitlab.local
@@ -17,8 +10,6 @@ global:
     configureCertmanager: false
     class: "traefik"
     
-
-  # Disable Rails bootsnap cache (temporary)
   rails:
     bootsnap:
       enabled: false
@@ -27,20 +18,24 @@ global:
     service:
       type: NodePort
       nodePort: 32022
-# Don't use certmanager, we'll self-sign
+
 installCertmanager: false
-# Use the `ingress` addon, not our Ingress (can't map 22/80/443)
+
 nginx-ingress:
   enabled: false
 
 certmanager:
   install: false
-# Save resources, only 3 CPU
+
 prometheus:
   install: false
+
 gitlab-runner:
   install: false
-# Reduce replica counts, reducing CPU & memory requirements
+
+registry:
+  enable: false
+
 gitlab:
   webservice:
     minReplicas: 1
@@ -53,8 +48,9 @@ gitlab:
   gitlab-shell:
     minReplicas: 1
     maxReplicas: 1
-
-registry:
-  hpa:
-    minReplicas: 1
-    maxReplicas: 1
+  kas:
+    enable: false
+  toolbox:
+    enable: false
+  gitlab-exporter:
+    enable: false
