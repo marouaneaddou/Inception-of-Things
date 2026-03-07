@@ -1,18 +1,13 @@
-
 global:
+  edition: ce
+
   hosts:
     domain: gitlab.local
-    externalIP: 127.0.0.1
     https: false
 
-  
   ingress:
     configureCertmanager: false
-    class: "traefik"
-    
-  rails:
-    bootsnap:
-      enabled: false
+    class: traefik
 
 installCertmanager: false
 
@@ -29,23 +24,68 @@ gitlab-runner:
   install: false
 
 registry:
-  enable: false
+  enabled: false
+
 
 gitlab:
+
   webservice:
     minReplicas: 1
     maxReplicas: 1
+    resources:
+      requests:
+        cpu: 400m
+        memory: 1.2G
+      limits:
+        cpu: 900m
+        memory: 2.5G
 
   sidekiq:
     minReplicas: 1
     maxReplicas: 1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512M
+      limits:
+        cpu: 300m
+        memory: 1G
 
   gitlab-shell:
     minReplicas: 1
     maxReplicas: 1
-  kas:
-    enable: false
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128M
+      limits:
+        cpu: 200m
+        memory: 256M
+  
+  minio:
+    enabled: false
+
   toolbox:
-    enable: false
+    enabled: true
+
+  kas:
+    enabled: false
+
   gitlab-exporter:
-    enable: false
+    enabled: false
+
+postgresql:
+  install: true
+  resources:
+    requests:
+      memory: 512Mi
+    limits:
+      memory: 1Gi
+
+redis:
+  install: true
+  resources:
+    requests:
+      memory: 256Mi
+    limits:
+      memory: 512Mi

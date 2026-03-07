@@ -18,4 +18,4 @@ helm install gitlab gitlab/gitlab -n gitlab --create-namespace -f ../confs/gitla
 
 kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
 
-./argocd-config.sh
+#./argocd-config.sh
