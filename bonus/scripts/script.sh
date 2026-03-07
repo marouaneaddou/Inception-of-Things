@@ -1,5 +1,5 @@
-if ! grep -q "gitlab.local" /etc/hosts; then
-    echo "127.0.0.1 gitlab.local gitlab.gitlab.local" | sudo tee -a /etc/hosts
+if ! grep -q "gitlab.gitlab.local" /etc/hosts; then
+    echo "127.0.0.1 gitlab.gitlab.local" | sudo tee -a /etc/hosts
 fi
 
 
@@ -14,10 +14,8 @@ rm get_helm.sh
 #gitlab installation
 helm repo add gitlab http://charts.gitlab.io/
 helm repo update
-helm install gitlab gitlab/gitlab -n gitlab --create-namespace -f ../confs/gitlab-values.yaml
+helm install gitlab gitlab/gitlab -n gitlab --create-namespace -f ../confs/gitlab-values.yaml --timeout 600s
 
 kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 --decode
-
-kubectl wait --for=condition=ready pods --all -n gitlab
 
 ./argocd-config.sh
