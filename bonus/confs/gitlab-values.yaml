@@ -29,7 +29,7 @@ gitlab-runner:
   install: false
 
 registry:
-  install: false
+  enable: false
 
 gitlab:
   webservice:
