@@ -1,4 +1,5 @@
 
+#!/bin/bash
 k3d &> /dev/null
 if [[ $? -eq 1 ]]; then
     echo "K3d already installed"
